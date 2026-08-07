@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Patogenesis — Laboratório de Diagnóstico Veterinário</title>
+<meta name="description" content="Citopatologia, Histopatologia, Imuno-histoquímica e Necropsia com atendimento especializado e suporte técnico para médicos-veterinários." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+<!-- ============ SVG SPRITE (ícones) ============ -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c2.6.1 4.5 2 4.5 4.8"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.5C10.5 5.2 8.6 4.5 6 4.5H3.5v14H6c2.6 0 4.5.7 6 2 1.5-1.3 3.4-2 6-2h2.5v-14H18c-2.6 0-4.5.7-6 2z"/><path d="M12 6.5v14"/></symbol>
+    <symbol id="i-microscope" viewBox="0 0 24 24"><path d="M6 20h13"/><path d="M9.5 20a5.5 5.5 0 0 0 5.5-5.5"/><path d="M11 4.5l3.6 5.6-3 1.9L8 6.4z"/><path d="M7.4 12.2l2.4-1.5"/><path d="M12.4 3.2l1.6 2.5"/><path d="M5.5 20v-3h4v3"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M10 3h4"/><path d="M11 3v6.2L5.9 18a2 2 0 0 0 1.7 3h8.8a2 2 0 0 0 1.7-3L13 9.2V3"/><path d="M7.6 15h8.8"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></symbol>
+    <symbol id="i-tube" viewBox="0 0 24 24"><path d="M9 2h6"/><path d="M10 2v16a2 2 0 0 0 4 0V2"/><path d="M10 12h4"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 0 1 4.8.8c0 1.7-2.4 2-2.4 3.6"/><path d="M12 17.2h.01"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M9 13.4L8 22l4-2.2 4 2.2-1-8.6"/></symbol>
+    <symbol id="i-slides" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-2.9 8.2-7 9.5-4.1-1.3-7-5.2-7-9.5V6z"/><path d="M9.2 12.2l1.9 1.9 3.7-3.9"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="10" rx="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="16" rx="2"/><path d="M9 4.5V3.6A1.6 1.6 0 0 1 10.6 2h2.8A1.6 1.6 0 0 1 15 3.6v.9"/><path d="M9 11h6M9 15h4"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v10"/><path d="M8 11l4 4 4-4"/><path d="M4.5 19h15"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15"/><path d="M13.5 6.5L19.5 12l-6 5.5"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9.5l6 6 6-6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.3 3.5h3l1.5 4-2 1.4a12 12 0 0 0 5.3 5.3l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.3 5.7a2 2 0 0 1 2-2.2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6 8.5-6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <!-- Glifo oficial do WhatsApp (marca sólida). O scale insere um respiro
+         para ele não pesar mais que os ícones de traço ao lado. -->
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" transform="translate(1.68 1.68) scale(.86)" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><path d="M17 7h.01"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><path d="M9.5 6.5c-3 1-4.8 3.4-4.8 6.6V18h5.6v-5.4H7.1c0-2 .9-3.3 2.9-4zM19.8 6.5c-3 1-4.8 3.4-4.8 6.6V18h5.6v-5.4h-3.2c0-2 .9-3.3 2.9-4z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+    <symbol id="i-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="currentColor" stroke="none"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="container header-inner">
+
+    <a class="brand" href="#home">
+      <img class="logo" src="assets/img/logo.png" width="640" height="160"
+           alt="Patogenesis — Laboratório de Diagnóstico Veterinário" />
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+      <ul class="nav-list">
+        <li><a class="nav-link is-active" href="#home">Home</a></li>
+
+        <li class="has-drop">
+          <button class="nav-link drop-toggle" aria-expanded="false" aria-controls="drop-exames">
+            Exames <svg class="chev"><use href="#i-chevron"/></svg>
+          </button>
+          <div class="dropdown" id="drop-exames">
+            <a href="#exames" data-exam="cito">
+              <svg class="d-ico"><use href="#i-microscope"/></svg>
+              <span><strong>Citopatologia</strong><em>Diagnóstico rápido e preciso</em></span>
+            </a>
+            <a href="#exames" data-exam="histo">
+              <svg class="d-ico"><use href="#i-slides"/></svg>
+              <span><strong>Histopatologia</strong><em>Análise detalhada de tecidos</em></span>
+            </a>
+            <a href="#exames" data-exam="ihq">
+              <svg class="d-ico"><use href="#i-flask"/></svg>
+              <span><strong>Imuno-histoquímica</strong><em>Marcadores específicos</em></span>
+            </a>
+            <a href="#exames" data-exam="necropsia">
+              <svg class="d-ico"><use href="#i-clipboard"/></svg>
+              <span><strong>Necropsia</strong><em>Elucidação de casos complexos</em></span>
+            </a>
+            <a href="#exames" data-exam="segunda">
+              <svg class="d-ico"><use href="#i-shield"/></svg>
+              <span><strong>Segunda opinião</strong><em>Revisão de lâminas e laudos</em></span>
+            </a>
+          </div>
+        </li>
+
+        <li class="has-drop">
+          <button class="nav-link drop-toggle" aria-expanded="false" aria-controls="drop-vets">
+            Para Veterinários <svg class="chev"><use href="#i-chevron"/></svg>
+          </button>
+          <div class="dropdown" id="drop-vets">
+            <a href="#veterinarios" data-resource="manual">
+              <svg class="d-ico"><use href="#i-book"/></svg>
+              <span><strong>Manual de coleta</strong><em>Passo a passo por tipo de amostra</em></span>
+            </a>
+            <a href="#veterinarios" data-resource="formularios">
+              <svg class="d-ico"><use href="#i-file"/></svg>
+              <span><strong>Formulários</strong><em>Requisições para download</em></span>
+            </a>
+            <a href="#veterinarios" data-resource="conservacao">
+              <svg class="d-ico"><use href="#i-tube"/></svg>
+              <span><strong>Conservação de amostras</strong><em>Fixação, transporte e prazos</em></span>
+            </a>
+            <a href="#veterinarios" data-resource="faq">
+              <svg class="d-ico"><use href="#i-help"/></svg>
+              <span><strong>Perguntas frequentes</strong><em>Dúvidas mais comuns</em></span>
+            </a>
+          </div>
+        </li>
+
+        <li><a class="nav-link" href="#casos">Casos Clínicos</a></li>
+        <li><a class="nav-link" href="#quem-somos">Quem Somos</a></li>
+        <li><a class="nav-link" href="#convenios">Convênios</a></li>
+        <li><a class="nav-link" href="#contato">Contato</a></li>
+      </ul>
+
+      <div class="nav-actions-mobile">
+        <a class="btn btn-ghost" href="#area-vet">Área do Veterinário <svg class="i"><use href="#i-lock"/></svg></a>
+        <button class="btn btn-primary" data-open-modal>Solicitar exame <svg class="i"><use href="#i-clipboard"/></svg></button>
+      </div>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-ghost" href="#area-vet">Área do Veterinário <svg class="i"><use href="#i-lock"/></svg></a>
+      <button class="btn btn-primary" data-open-modal>Solicitar exame <svg class="i"><use href="#i-clipboard"/></svg></button>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
+      <svg class="ico-menu"><use href="#i-menu"/></svg>
+      <svg class="ico-close"><use href="#i-close"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img data-ph="hero" alt="Médica-veterinária analisando lâmina ao microscópio" />
+    <span class="hero-fade"></span>
+  </div>
+
+  <div class="container hero-inner">
+    <div class="hero-copy reveal">
+      <h1>Diagnóstico veterinário<br />preciso para decisões<br />clínicas <span class="hl">mais seguras</span></h1>
+      <p class="lead">Citopatologia, Histopatologia, Imuno-histoquímica e Necropsia com atendimento especializado e suporte técnico para médicos-veterinários.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary btn-lg" data-open-modal>Solicitar exame</button>
+        <a class="btn btn-outline btn-lg" href="https://wa.me/5561999552020" target="_blank" rel="noopener">Entrar em contato <svg class="i"><use href="#i-whatsapp"/></svg></a>
+      </div>
+      <p class="hero-note"><svg class="i"><use href="#i-target"/></svg> Agilidade, precisão e suporte em cada resultado.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="features reveal">
+      <article class="feature">
+        <span class="f-ico"><svg><use href="#i-target"/></svg></span>
+        <h3>Diagnóstico preciso</h3>
+        <p>Resultados fundamentados em literatura e protocolos atualizados.</p>
+      </article>
+      <article class="feature">
+        <span class="f-ico"><svg><use href="#i-clock"/></svg></span>
+        <h3>Agilidade</h3>
+        <p>Laudos rápidos para auxiliar na tomada de decisão clínica.</p>
+      </article>
+      <article class="feature">
+        <span class="f-ico"><svg><use href="#i-users"/></svg></span>
+        <h3>Suporte técnico</h3>
+        <p>Discussão de casos e segunda opinião com especialista.</p>
+      </article>
+      <article class="feature">
+        <span class="f-ico"><svg><use href="#i-book"/></svg></span>
+        <h3>Atualização contínua</h3>
+        <p>Atuação baseada nos mais recentes consensos e publicações científicas.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXAMES ============ -->
+<section class="section" id="exames">
+  <div class="container">
+    <header class="section-head reveal">
+      <h2>Nossos exames</h2>
+      <span class="rule"></span>
+    </header>
+
+    <div class="exams">
+      <article class="exam-card reveal" data-exam="cito">
+        <div class="exam-media"><img data-ph="cyto" alt="Lâmina de citopatologia" /></div>
+        <div class="exam-body">
+          <h3>Citopatologia</h3>
+          <p>Avaliação de células para diagnóstico rápido e preciso.</p>
+          <button class="link-more" data-exam-open="cito">Saiba mais <svg class="i"><use href="#i-arrow-right"/></svg></button>
+        </div>
+      </article>
+
+      <article class="exam-card reveal" data-exam="histo">
+        <div class="exam-media"><img data-ph="histo" alt="Lâmina de histopatologia" /></div>
+        <div class="exam-body">
+          <h3>Histopatologia</h3>
+          <p>Análise detalhada de tecidos para diagnósticos conclusivos.</p>
+          <button class="link-more" data-exam-open="histo">Saiba mais <svg class="i"><use href="#i-arrow-right"/></svg></button>
+        </div>
+      </article>
+
+      <article class="exam-card reveal" data-exam="ihq">
+        <div class="exam-media"><img data-ph="ihc" alt="Lâmina de imuno-histoquímica" /></div>
+        <div class="exam-body">
+          <h3>Imuno-histoquímica</h3>
+          <p>Marcadores específicos para maior precisão diagnóstica.</p>
+          <button class="link-more" data-exam-open="ihq">Saiba mais <svg class="i"><use href="#i-arrow-right"/></svg></button>
+        </div>
+      </article>
+
+      <article class="exam-card reveal" data-exam="necropsia">
+        <div class="exam-media"><img data-ph="necropsy" alt="Procedimento de necropsia" /></div>
+        <div class="exam-body">
+          <h3>Necropsia</h3>
+          <p>Estudo completo para elucidação de casos clínicos complexos.</p>
+          <button class="link-more" data-exam-open="necropsia">Saiba mais <svg class="i"><use href="#i-arrow-right"/></svg></button>
+        </div>
+      </article>
+
+      <article class="exam-card reveal" data-exam="segunda">
+        <div class="exam-media"><img data-ph="report" alt="Revisão de laudo" /></div>
+        <div class="exam-body">
+          <h3>Segunda opinião</h3>
+          <p>Revisão de lâminas e laudos para maior segurança diagnóstica.</p>
+          <button class="link-more" data-exam-open="segunda">Saiba mais <svg class="i"><use href="#i-arrow-right"/></svg></button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ESPECIALISTA ============ -->
+<section class="section specialist" id="quem-somos">
+  <div class="container specialist-grid">
+
+    <div class="spec-photo reveal">
+      <img data-ph="person" alt="Dra. Cecília Bandarra, médica-veterinária patologista" />
+    </div>
+
+    <div class="spec-copy reveal">
+      <span class="eyebrow">Conheça a especialista</span>
+      <h2>Dra. Cecília Bandarra</h2>
+      <p class="spec-role">Médica-Veterinária | CRMV-DF 2461</p>
+      <ul class="spec-list">
+        <li><svg class="i"><use href="#i-dot"/></svg> Graduação em Medicina Veterinária – UnB</li>
+        <li><svg class="i"><use href="#i-dot"/></svg> Residência em Patologia Animal – UnB</li>
+        <li><svg class="i"><use href="#i-dot"/></svg> Mestrado em Patologia Animal – UnB</li>
+        <li><svg class="i"><use href="#i-dot"/></svg> Patologista Clínica de Pequenos Animais</li>
+        <li><svg class="i"><use href="#i-dot"/></svg> Membro da Sociedade Brasileira de Patologia Veterinária (SBPV)</li>
+      </ul>
+      <a class="btn btn-outline" href="#contato">Saiba mais sobre a especialista <svg class="i"><use href="#i-arrow-right"/></svg></a>
+    </div>
+
+    <aside class="spec-stats reveal">
+      <div class="stat">
+        <span class="s-ico"><svg><use href="#i-award"/></svg></span>
+        <div>
+          <strong><span class="count" data-count="10">0</span><span class="plus">+</span> anos</strong>
+          <p>de experiência em patologia veterinária</p>
+        </div>
+      </div>
+      <div class="stat">
+        <span class="s-ico"><svg><use href="#i-slides"/></svg></span>
+        <div>
+          <strong>Milhares</strong>
+          <p>de exames realizados com precisão</p>
+        </div>
+      </div>
+      <div class="stat">
+        <span class="s-ico"><svg><use href="#i-shield"/></svg></span>
+        <div>
+          <strong>Veterinários</strong>
+          <p>atendidos em todo o Brasil</p>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<!-- ============ PARA VETERINÁRIOS ============ -->
+<section class="vets" id="veterinarios">
+  <div class="vets-grid">
+    <div class="vets-copy">
+      <div class="vets-inner reveal">
+        <span class="eyebrow accent">Para veterinários</span>
+        <h2>Materiais e ferramentas para apoiar sua rotina clínica</h2>
+        <p>Manuais, formulários, dicas de coleta e conteúdos exclusivos para facilitar o envio de amostras e melhorar a qualidade diagnóstica.</p>
+        <a class="btn btn-primary" href="#area-vet">Acessar materiais <svg class="i"><use href="#i-download"/></svg></a>
+      </div>
+
+      <div class="vets-cards reveal">
+        <button class="vcard" data-resource="manual">
+          <span class="v-ico"><svg><use href="#i-book"/></svg></span>
+          <strong>Manual de coleta</strong>
+        </button>
+        <button class="vcard" data-resource="formularios">
+          <span class="v-ico"><svg><use href="#i-file"/></svg></span>
+          <strong>Formulários download</strong>
+        </button>
+        <button class="vcard" data-resource="conservacao">
+          <span class="v-ico"><svg><use href="#i-tube"/></svg></span>
+          <strong>Conservação de amostras</strong>
+        </button>
+        <button class="vcard" data-resource="faq">
+          <span class="v-ico"><svg><use href="#i-help"/></svg></span>
+          <strong>Perguntas frequentes</strong>
+        </button>
+      </div>
+    </div>
+
+    <div class="vets-media">
+      <img data-ph="slides" alt="Lâminas preparadas em bandeja de laboratório" />
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASOS CLÍNICOS ============ -->
+<section class="section cases" id="casos">
+  <div class="container">
+    <header class="section-head reveal">
+      <h2>Casos clínicos</h2>
+      <span class="rule"></span>
+      <p class="section-sub">Estudos reais comentados pela especialista — imagens, achados e conduta sugerida.</p>
+    </header>
+
+    <div class="case-grid">
+      <article class="case-card reveal">
+        <div class="case-media"><img data-ph="cyto" alt="Citologia de massa cutânea" /><span class="tag">Citopatologia</span></div>
+        <h3>Massa cutânea em cão de 8 anos</h3>
+        <p>Punção aspirativa com população de mastócitos bem diferenciados — conduta cirúrgica com margens ampliadas.</p>
+        <button class="link-more" data-case="1">Ler caso <svg class="i"><use href="#i-arrow-right"/></svg></button>
+      </article>
+
+      <article class="case-card reveal">
+        <div class="case-media"><img data-ph="histo" alt="Histologia de linfonodo" /><span class="tag">Histopatologia</span></div>
+        <h3>Linfonodomegalia generalizada em felino</h3>
+        <p>Arquitetura apagada por infiltrado linfoide monomórfico; imuno-histoquímica confirmou linfoma de células B.</p>
+        <button class="link-more" data-case="2">Ler caso <svg class="i"><use href="#i-arrow-right"/></svg></button>
+      </article>
+
+      <article class="case-card reveal">
+        <div class="case-media"><img data-ph="ihc" alt="Painel de imuno-histoquímica" /><span class="tag">Imuno-histoquímica</span></div>
+        <h3>Neoplasia indiferenciada em cavidade oral</h3>
+        <p>Painel com Melan-A, citoqueratina e vimentina definiu melanoma amelanótico e mudou o prognóstico.</p>
+        <button class="link-more" data-case="3">Ler caso <svg class="i"><use href="#i-arrow-right"/></svg></button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="section testimonials" id="depoimentos">
+  <div class="container">
+    <header class="section-head reveal">
+      <h2>O que nossos clientes dizem</h2>
+      <span class="rule"></span>
+    </header>
+
+    <div class="carousel reveal" id="carousel">
+      <button class="car-nav prev" aria-label="Depoimento anterior"><svg><use href="#i-chevron"/></svg></button>
+
+      <div class="car-viewport">
+        <div class="car-track" id="carTrack">
+
+          <article class="t-card">
+            <svg class="t-quote"><use href="#i-quote"/></svg>
+            <p>"Atendimento rápido, laudos detalhados e suporte excepcional. Faz toda a diferença na minha rotina clínica."</p>
+            <footer>
+              <img data-ph="avatar-1" alt="" />
+              <div><strong>Mariana L.</strong><small>Médica-Veterinária</small></div>
+              <span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+            </footer>
+          </article>
+
+          <article class="t-card">
+            <svg class="t-quote"><use href="#i-quote"/></svg>
+            <p>"Confio na Patogenesis para casos simples e complexos. A qualidade técnica é impecável."</p>
+            <footer>
+              <img data-ph="avatar-2" alt="" />
+              <div><strong>Rafael A.</strong><small>Médico-Veterinário</small></div>
+              <span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+            </footer>
+          </article>
+
+          <article class="t-card">
+            <svg class="t-quote"><use href="#i-quote"/></svg>
+            <p>"A segunda opinião da Dra. Cecília já me ajudou em diagnósticos desafiadores."</p>
+            <footer>
+              <img data-ph="avatar-3" alt="" />
+              <div><strong>Juliana P.</strong><small>Médica-Veterinária</small></div>
+              <span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+            </footer>
+          </article>
+
+          <article class="t-card">
+            <svg class="t-quote"><use href="#i-quote"/></svg>
+            <p>"Prazo cumprido à risca e disponibilidade para discutir o caso por telefone. Recomendo sem ressalvas."</p>
+            <footer>
+              <img data-ph="avatar-4" alt="" />
+              <div><strong>Bruno M.</strong><small>Médico-Veterinário</small></div>
+              <span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+            </footer>
+          </article>
+
+          <article class="t-card">
+            <svg class="t-quote"><use href="#i-quote"/></svg>
+            <p>"O material de coleta padronizou o envio de amostras da nossa clínica e reduziu muito o retrabalho."</p>
+            <footer>
+              <img data-ph="avatar-5" alt="" />
+              <div><strong>Camila R.</strong><small>Médica-Veterinária</small></div>
+              <span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+            </footer>
+          </article>
+
+        </div>
+      </div>
+
+      <button class="car-nav next" aria-label="Próximo depoimento"><svg><use href="#i-chevron"/></svg></button>
+      <div class="car-dots" id="carDots" role="tablist" aria-label="Selecionar depoimento"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONVÊNIOS ============ -->
+<section class="section convenios" id="convenios">
+  <div class="container">
+    <header class="section-head reveal">
+      <h2>Convênios e parcerias</h2>
+      <span class="rule"></span>
+      <p class="section-sub">Condições especiais para clínicas, hospitais veterinários e redes com volume recorrente de exames.</p>
+    </header>
+
+    <div class="conv-grid reveal">
+      <div class="conv-card">
+        <span class="c-ico"><svg><use href="#i-users"/></svg></span>
+        <h3>Clínicas e hospitais</h3>
+        <p>Tabela diferenciada, coleta programada e canal direto com a patologista.</p>
+      </div>
+      <div class="conv-card">
+        <span class="c-ico"><svg><use href="#i-slides"/></svg></span>
+        <h3>Volume recorrente</h3>
+        <p>Faturamento mensal consolidado e relatórios de casos por unidade.</p>
+      </div>
+      <div class="conv-card">
+        <span class="c-ico"><svg><use href="#i-book"/></svg></span>
+        <h3>Ensino e pesquisa</h3>
+        <p>Apoio a projetos acadêmicos, residências e programas de pós-graduação.</p>
+      </div>
+    </div>
+
+    <div class="conv-cta reveal">
+      <div>
+        <h3>Quer credenciar sua clínica?</h3>
+        <p>Envie seus dados e retornamos com uma proposta em até 1 dia útil.</p>
+      </div>
+      <button class="btn btn-primary btn-lg" data-open-modal data-preset="convenio">Falar sobre convênio</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section class="section contato" id="contato">
+  <div class="container contato-grid">
+    <div class="reveal">
+      <span class="eyebrow accent">Contato</span>
+      <h2>Vamos conversar sobre o seu caso</h2>
+      <p class="section-sub left">Atendimento a médicos-veterinários em todo o Brasil. Retornamos em horário comercial.</p>
+
+      <ul class="contact-list">
+        <li><span class="ct-ico"><svg><use href="#i-phone"/></svg></span><a href="tel:+556199552020">(61) 99955-2020</a></li>
+        <li><span class="ct-ico"><svg><use href="#i-mail"/></svg></span><a href="mailto:contato@patogenesis.com">contato@patogenesis.com</a></li>
+        <li><span class="ct-ico"><svg><use href="#i-pin"/></svg></span><span>Brasília – DF</span></li>
+        <li><span class="ct-ico"><svg><use href="#i-clock"/></svg></span><span>Seg. a Sex., 8h às 18h</span></li>
+      </ul>
+
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="https://wa.me/5561999552020" target="_blank" rel="noopener">WhatsApp <svg class="i"><use href="#i-whatsapp"/></svg></a>
+        <a class="btn btn-outline" href="#area-vet" id="area-vet">Área do Veterinário <svg class="i"><use href="#i-lock"/></svg></a>
+      </div>
+    </div>
+
+    <form class="contact-form reveal" id="contactForm" novalidate>
+      <h3>Envie uma mensagem</h3>
+
+      <div class="field">
+        <label for="cf-nome">Nome completo *</label>
+        <input id="cf-nome" name="nome" type="text" placeholder="Dra. Ana Souza" required />
+        <span class="err"></span>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="cf-email">E-mail *</label>
+          <input id="cf-email" name="email" type="email" placeholder="voce@clinica.com" required />
+          <span class="err"></span>
+        </div>
+        <div class="field">
+          <label for="cf-tel">Telefone *</label>
+          <input id="cf-tel" name="telefone" type="tel" inputmode="numeric" placeholder="(61) 90000-0000" required />
+          <span class="err"></span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="cf-assunto">Assunto</label>
+        <select id="cf-assunto" name="assunto">
+          <option>Dúvida sobre exame</option>
+          <option>Solicitação de coleta</option>
+          <option>Segunda opinião</option>
+          <option>Convênio / parceria</option>
+          <option>Outro</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="cf-msg">Mensagem *</label>
+        <textarea id="cf-msg" name="mensagem" rows="4" placeholder="Conte brevemente sobre o caso ou sua dúvida." required></textarea>
+        <span class="err"></span>
+      </div>
+
+      <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar mensagem</button>
+      <p class="form-note">Ao enviar você concorda em ser contatado pela equipe Patogenesis.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+
+    <div class="f-brand">
+      <a class="brand" href="#home">
+        <img class="logo" src="assets/img/logo.png" width="640" height="160"
+             alt="Patogenesis — Laboratório de Diagnóstico Veterinário" />
+      </a>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
+        <a href="https://wa.me/5561999552020" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-whatsapp"/></svg></a>
+      </div>
+    </div>
+
+    <div class="f-col f-nav">
+      <h4>Navegação</h4>
+      <div class="f-nav-cols">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#exames">Exames</a></li>
+          <li><a href="#veterinarios">Para Veterinários</a></li>
+          <li><a href="#casos">Casos Clínicos</a></li>
+        </ul>
+        <ul>
+          <li><a href="#quem-somos">Quem Somos</a></li>
+          <li><a href="#convenios">Convênios</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="f-col">
+      <h4>Contato</h4>
+      <ul class="f-contact">
+        <li><svg class="i"><use href="#i-phone"/></svg><a href="tel:+556199552020">(61) 99955-2020</a></li>
+        <li><svg class="i"><use href="#i-mail"/></svg><a href="mailto:contato@patogenesis.com">contato@patogenesis.com</a></li>
+        <li><svg class="i"><use href="#i-pin"/></svg><span>Brasília – DF</span></li>
+      </ul>
+    </div>
+
+    <div class="f-col">
+      <h4>Solicite um exame</h4>
+      <p>Envie sua solicitação de forma rápida e prática pelo nosso portal.</p>
+      <button class="btn btn-primary" data-open-modal>Solicitar exame</button>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <span>© <span id="year">2024</span> Patogenesis Laboratório de Diagnóstico Veterinário. Todos os direitos reservados.</span>
+      <span class="dev">Desenvolvido com <svg class="i"><use href="#i-dot"/></svg></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ BOTÕES FLUTUANTES ============ -->
+<a class="fab whats" href="https://wa.me/5561999552020" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg><use href="#i-whatsapp"/></svg>
+</a>
+<button class="fab top" id="backToTop" aria-label="Voltar ao topo"><svg><use href="#i-arrow-up"/></svg></button>
+
+<!-- ============ MODAL: SOLICITAR EXAME ============ -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" data-close-modal aria-label="Fechar"><svg><use href="#i-close"/></svg></button>
+
+    <div class="modal-head">
+      <span class="eyebrow accent">Solicitação</span>
+      <h3 id="modalTitle">Solicitar exame</h3>
+      <p>Preencha os dados abaixo. Nossa equipe confirma a coleta e o prazo por WhatsApp.</p>
+    </div>
+
+    <form id="examForm" novalidate>
+      <div class="field-row">
+        <div class="field">
+          <label for="mf-nome">Nome do veterinário *</label>
+          <input id="mf-nome" name="nome" type="text" required placeholder="Dra. Ana Souza" />
+          <span class="err"></span>
+        </div>
+        <div class="field">
+          <label for="mf-crmv">CRMV</label>
+          <input id="mf-crmv" name="crmv" type="text" placeholder="CRMV-DF 0000" />
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="mf-email">E-mail *</label>
+          <input id="mf-email" name="email" type="email" required placeholder="voce@clinica.com" />
+          <span class="err"></span>
+        </div>
+        <div class="field">
+          <label for="mf-tel">Telefone / WhatsApp *</label>
+          <input id="mf-tel" name="telefone" type="tel" inputmode="numeric" required placeholder="(61) 90000-0000" />
+          <span class="err"></span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="mf-clinica">Clínica / Hospital</label>
+        <input id="mf-clinica" name="clinica" type="text" placeholder="Nome do estabelecimento" />
+      </div>
+
+      <fieldset class="field">
+        <legend>Tipo de exame *</legend>
+        <div class="chips" id="examChips">
+          <label class="chip"><input type="checkbox" name="exame" value="Citopatologia" /><span>Citopatologia</span></label>
+          <label class="chip"><input type="checkbox" name="exame" value="Histopatologia" /><span>Histopatologia</span></label>
+          <label class="chip"><input type="checkbox" name="exame" value="Imuno-histoquímica" /><span>Imuno-histoquímica</span></label>
+          <label class="chip"><input type="checkbox" name="exame" value="Necropsia" /><span>Necropsia</span></label>
+          <label class="chip"><input type="checkbox" name="exame" value="Segunda opinião" /><span>Segunda opinião</span></label>
+          <label class="chip"><input type="checkbox" name="exame" value="Convênio" /><span>Convênio</span></label>
+        </div>
+        <span class="err"></span>
+      </fieldset>
+
+      <div class="field">
+        <label for="mf-obs">Observações do caso</label>
+        <textarea id="mf-obs" name="obs" rows="3" placeholder="Espécie, raça, idade, histórico e suspeita clínica."></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline" data-close-modal>Cancelar</button>
+        <button type="submit" class="btn btn-primary">Enviar solicitação</button>
+      </div>
+    </form>
+
+    <div class="modal-success" id="modalSuccess" hidden>
+      <span class="ok"><svg><use href="#i-check"/></svg></span>
+      <h3>Solicitação enviada!</h3>
+      <p>Recebemos seus dados. Em breve nossa equipe entra em contato para confirmar a coleta.</p>
+      <div class="modal-actions center">
+        <a class="btn btn-primary" href="https://wa.me/5561999552020" target="_blank" rel="noopener">Adiantar pelo WhatsApp <svg class="i"><use href="#i-whatsapp"/></svg></a>
+        <button class="btn btn-outline" data-close-modal>Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MODAL: DETALHE (exames / materiais / casos) ============ -->
+<div class="modal" id="infoModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-info></div>
+  <div class="modal-box slim" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+    <button class="modal-close" data-close-info aria-label="Fechar"><svg><use href="#i-close"/></svg></button>
+    <div class="info-media"><img id="infoImg" alt="" /></div>
+    <div class="info-body">
+      <span class="eyebrow accent" id="infoTag">Exame</span>
+      <h3 id="infoTitle">Título</h3>
+      <p id="infoText">Descrição</p>
+      <ul id="infoList" class="info-list"></ul>
+      <div class="modal-actions">
+        <button class="btn btn-primary" data-open-modal data-close-info>Solicitar este exame</button>
+        <button class="btn btn-outline" data-close-info>Voltar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
