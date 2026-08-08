@@ -151,7 +151,9 @@
 
   <div class="container hero-inner">
     <div class="hero-copy reveal">
-      <h1>Diagnóstico veterinário<br />preciso para decisões<br />clínicas <span class="hl">mais seguras</span></h1>
+      <!-- espaço antes de cada <br>: sem ele, quando o <br> vira display:none
+           no mobile as palavras grudam ("veterináriopreciso") -->
+      <h1>Diagnóstico veterinário <br />preciso para decisões <br />clínicas <span class="hl">mais seguras</span></h1>
       <p class="lead">Citopatologia, Histopatologia, Imuno-histoquímica e Necropsia com atendimento especializado e suporte técnico para médicos-veterinários.</p>
       <div class="hero-cta">
         <button class="btn btn-primary btn-lg" data-open-modal>Solicitar exame</button>
@@ -269,7 +271,9 @@
       <div class="stat">
         <span class="s-ico"><svg><use href="#i-award"/></svg></span>
         <div>
-          <strong><span class="count" data-count="10">0</span><span class="plus">+</span> anos</strong>
+          <!-- valor final no HTML: se a animacao nao rodar (reduced-motion,
+               JS falho, aba em segundo plano) o numero certo aparece mesmo assim -->
+          <strong><span class="count" data-count="10">10</span><span class="plus">+</span> anos</strong>
           <p>de experiência em patologia veterinária</p>
         </div>
       </div>

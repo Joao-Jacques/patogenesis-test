@@ -254,6 +254,13 @@
         if (!entry.isIntersecting) return;
         const el = entry.target;
         const end = parseInt(el.dataset.count, 10);
+        cio.unobserve(el);
+        // quem pediu menos movimento ve o numero final direto
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          el.textContent = end;
+          return;
+        }
+        el.textContent = '0';
         let t0 = null;
         const step = (ts) => {
           if (!t0) t0 = ts;

@@ -37,7 +37,21 @@
 
 *,*::before,*::after{ box-sizing:border-box; }
 
-html{ scroll-behavior:smooth; }
+html{
+  scroll-behavior:smooth;
+  /* clip (e não hidden) no <html>: contém o menu off-canvas, que fica em
+     translateX fora da tela. `hidden` no <body> não segurava um elemento
+     position:fixed e gerava barra de rolagem lateral no celular.
+     Precisa ser no <html> — no <body> ele viraria contexto de rolagem
+     próprio e quebraria o position:sticky do header. */
+  overflow-x:clip;
+}
+/* Safari < 16 não conhece `clip`. Nesse caso o <html> continua `visible`,
+   então o hidden do <body> propaga para o viewport normalmente e o
+   position:sticky do header segue funcionando. */
+@supports not (overflow: clip){
+  body{ overflow-x:hidden; }
+}
 @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
 
 body{
@@ -48,7 +62,6 @@ body{
   color:var(--ink-2);
   background:var(--bg);
   -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
 }
 body.no-scroll{ overflow:hidden; }
 
@@ -548,13 +561,26 @@ svg:where(:not(.sprite)){
   .hamburger{ display:grid; }
   .header-actions{ display:none; }
 
+  /* backdrop-filter transforma o header em bloco contentor de descendentes
+     position:fixed. Com ele, o .main-nav se ancorava nos 74px do header em
+     vez do viewport: o drawer colapsava para 44px de altura e o translateX
+     de fechamento saía da tela. Sem blur aqui, fundo opaco no lugar. */
+  .site-header{ backdrop-filter:none; background:#fff; }
+  .site-header.stuck{ background:#fff; }
+
+  /* O painel NUNCA sai da tela. Um translateX(105%) para escondê-lo deixava
+     ~325px de conteúdo à direita do viewport: isso alarga a layout viewport
+     do celular, e todo position:fixed (o botão do WhatsApp, por exemplo)
+     passa a se ancorar nessa largura maior, indo parar fora da tela.
+     Fechado ele fica no lugar e some por opacity/visibility. */
   .main-nav{
     position:fixed; inset:var(--header-h) 0 0 auto; width:min(360px,86vw);
     background:#fff; border-left:1px solid var(--line); box-shadow:var(--shadow-lg);
     padding:22px; overflow-y:auto;
-    transform:translateX(105%); transition:transform .35s var(--ease);
+    opacity:0; visibility:hidden; transform:translateY(-12px);
+    transition:opacity .28s var(--ease), transform .28s var(--ease), visibility .28s;
   }
-  .main-nav.open{ transform:translateX(0); }
+  .main-nav.open{ opacity:1; visibility:visible; transform:none; }
   .nav-list{ flex-direction:column; align-items:stretch; gap:2px; }
   .nav-link{ width:100%; justify-content:space-between; padding:13px 12px; font-size:15px; border-radius:10px; }
   .nav-link::after{ display:none; }
