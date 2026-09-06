@@ -395,7 +395,7 @@ svg:where(:not(.sprite)){
 
 .conv-cta{
   display:flex; align-items:center; justify-content:space-between; gap:26px; flex-wrap:wrap;
-  margin-top:34px; padding:32px 36px; border-radius:var(--radius-lg);
+  padding:32px 36px; border-radius:var(--radius-lg);   /* sem margin-top: o CTA agora segue direto o cabecalho da secao */
   background:linear-gradient(120deg, var(--brand-tint), var(--cream-2));
   border:1px solid var(--line);
 }
