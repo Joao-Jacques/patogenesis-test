@@ -249,7 +249,7 @@ svg:where(:not(.sprite)){
 .eyebrow.accent{ color:var(--brand); }
 
 /* ---------------- Exames ---------------- */
-.exams{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+.exams{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
 
 .exam-card{
   background:#fff; border:1px solid var(--line); border-radius:var(--radius);
@@ -409,6 +409,8 @@ svg:where(:not(.sprite)){
 
 .contact-list{ display:grid; gap:14px; margin:28px 0; }
 .contact-list li{ display:flex; align-items:center; gap:14px; font-size:15px; }
+.contact-list li:has(address){ align-items:flex-start; }
+.contact-list address{ font-style:normal; margin:0; line-height:1.5; padding-top:8px; }
 .ct-ico{ display:grid; place-items:center; width:40px; height:40px; border-radius:11px; background:#fff; border:1px solid var(--line); color:var(--brand); flex-shrink:0; transition:background-color .25s, color .25s, transform .25s var(--ease); }
 .ct-ico svg{ width:19px; height:19px; }
 .contact-list li:hover .ct-ico{ background:var(--brand); color:#fff; transform:translateY(-2px); }
@@ -467,6 +469,9 @@ svg:where(:not(.sprite)){
 .f-nav-cols a{ font-size:13.8px; color:var(--muted); transition:color .2s, padding-left .22s var(--ease); }
 .f-nav-cols a:hover{ color:var(--brand); padding-left:4px; }
 .f-contact li{ display:flex; align-items:center; gap:10px; font-size:13.8px; color:var(--muted); }
+.f-contact li:has(address){ align-items:flex-start; }
+.f-contact address{ font-style:normal; margin:0; line-height:1.55; }
+.f-contact li:has(address) .i{ margin-top:3px; }
 .f-contact .i{ width:16px; height:16px; color:var(--brand); flex-shrink:0; }
 .f-contact a{ transition:color .2s; }
 .f-contact a:hover{ color:var(--brand); }

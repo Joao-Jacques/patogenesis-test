@@ -443,14 +443,9 @@
       list: ['Painéis personalizados por suspeita clínica', 'Diferenciação de tumores redondos e fusiformes', 'Marcadores prognósticos (ex.: Ki-67)', 'Laudo integrado à histopatologia']
     },
     necropsia: {
-      tag: 'Exame', ph: 'necropsy', title: 'Necropsia',
+      tag: 'Exame', ph: 'necropsy', img: 'assets/img/necropsia.jpg', title: 'Necropsia',
       text: 'Exame completo com correlação entre achados macroscópicos, histopatológicos e o histórico clínico, para elucidação de óbitos e casos complexos.',
       list: ['Relatório macroscópico com registro fotográfico', 'Coleta e processamento de fragmentos', 'Correlação clínico-patológica', 'Orientação sobre conservação e transporte']
-    },
-    segunda: {
-      tag: 'Exame', ph: 'report', title: 'Segunda opinião',
-      text: 'Revisão de lâminas e laudos emitidos por outros laboratórios, com parecer independente para dar segurança à decisão terapêutica.',
-      list: ['Revisão de lâminas ou blocos de parafina', 'Parecer técnico independente', 'Sugestão de exames complementares', 'Retorno por videochamada, se preferir']
     }
   };
 
@@ -461,7 +456,7 @@
       list: ['Punção aspirativa por agulha fina', 'Imprint e raspado cutâneo', 'Fragmentos para histopatologia', 'Identificação e rotulagem das lâminas']
     },
     formularios: {
-      tag: 'Material', ph: 'report', title: 'Formulários para download',
+      tag: 'Material', ph: 'report', title: 'Requisição',
       text: 'Requisições prontas para preencher e enviar junto com a amostra. Um histórico bem descrito melhora muito a qualidade do laudo.',
       list: ['Requisição de citopatologia', 'Requisição de histopatologia', 'Requisição de imuno-histoquímica', 'Termo de necropsia']
     },
@@ -499,7 +494,8 @@
     $('#infoTag').textContent = data.tag;
     $('#infoTitle').textContent = data.title;
     $('#infoText').textContent = data.text;
-    $('#infoImg').src = makePlaceholder(data.ph, 900, 420, data.title.length * 7);
+    // `img` = arquivo real; senao cai no placeholder gerado
+    $('#infoImg').src = data.img || makePlaceholder(data.ph, 900, 420, data.title.length * 7);
     $('#infoImg').alt = data.title;
     const ul = $('#infoList');
     ul.innerHTML = '';
@@ -653,13 +649,14 @@
   }
 
   /* =======================================================
-     11) ÁREA DO VETERINÁRIO (placeholder)
+     11) ACESSAR MATERIAIS (placeholder)
+     Solicitacao e resultados agora sao links diretos para o sistema
+     externo (ideainfo) no HTML. So os materiais seguem sem destino.
      ======================================================= */
-  $$('a[href="#area-vet"]').forEach((a) => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
+  $$('[data-materials]').forEach((b) => {
+    b.addEventListener('click', () => {
       closeNav();
-      toast('Área do Veterinário em construção — em breve com login e laudos.');
+      toast('Materiais em preparação — em breve disponíveis para download.');
     });
   });
 
