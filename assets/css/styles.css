@@ -409,8 +409,10 @@ svg:where(:not(.sprite)){
 
 .contact-list{ display:grid; gap:14px; margin:28px 0; }
 .contact-list li{ display:flex; align-items:center; gap:14px; font-size:15px; }
-.contact-list li:has(address){ align-items:flex-start; }
-.contact-list address{ font-style:normal; margin:0; line-height:1.5; padding-top:8px; }
+/* itens de 2 linhas (endereço, horários): icone alinhado ao topo */
+.contact-list li:has(br){ align-items:flex-start; }
+.contact-list li:has(br) > :not(.ct-ico){ padding-top:8px; }
+.contact-list address{ font-style:normal; margin:0; line-height:1.5; }
 .ct-ico{ display:grid; place-items:center; width:40px; height:40px; border-radius:11px; background:#fff; border:1px solid var(--line); color:var(--brand); flex-shrink:0; transition:background-color .25s, color .25s, transform .25s var(--ease); }
 .ct-ico svg{ width:19px; height:19px; }
 .contact-list li:hover .ct-ico{ background:var(--brand); color:#fff; transform:translateY(-2px); }
