@@ -408,7 +408,9 @@ svg:where(:not(.sprite)){
 .rv-score .stars{ margin-left:0; }
 .rv-score .stars svg{ width:15px; height:15px; }
 .rv-score small{ font-size:12.4px; color:var(--muted); }
-.reviews-cta > p{ font-size:14.8px; color:var(--muted); max-width:420px; }
+.reviews-cta > p{ font-size:14.8px; color:var(--muted); max-width:480px; }
+.btn-stars{ display:inline-flex; gap:2px; }
+.btn-stars svg{ width:14px; height:14px; fill:currentColor; stroke:none; }
 @media (max-width:720px){
   .reviews-cta{ flex-direction:column; text-align:center; gap:18px; padding:24px 20px; }
   .reviews-cta .btn{ width:100%; }
