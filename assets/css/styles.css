@@ -274,7 +274,9 @@ svg:where(:not(.sprite)){
 .specialist-grid{ display:grid; grid-template-columns:.86fr 1.15fr .95fr; gap:34px; align-items:center; }
 
 .spec-photo{ border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow); }
-.spec-photo img{ width:100%; aspect-ratio:4/4.3; object-fit:cover; transition:transform .7s var(--ease); }
+/* height:auto e obrigatorio: sem ele o atributo height="645" do <img>
+   vira height:645px e anula o aspect-ratio, esticando a foto. */
+.spec-photo img{ width:100%; height:auto; aspect-ratio:4/4.3; object-fit:cover; transition:transform .7s var(--ease); }
 .spec-photo:hover img{ transform:scale(1.04); }
 
 .spec-copy h2{ font-size:clamp(26px,3vw,33px); }
@@ -348,14 +350,28 @@ svg:where(:not(.sprite)){
 
 .t-card{
   flex:0 0 calc((100% - 44px)/3);
+  /* coluna flex + margin-top:auto no <footer>: a trilha estica todos os
+     cards a altura do maior, e sem isso o rodape dos curtos ficaria
+     boiando no meio, com um vazio embaixo. */
+  display:flex; flex-direction:column;
   position:relative; background:#fff; border:1px solid var(--line); border-radius:var(--radius);
   padding:28px 24px 22px; box-shadow:var(--shadow-sm);
   transition:transform .35s var(--ease), box-shadow .35s var(--ease);
 }
 .t-card:hover{ transform:translateY(-5px); box-shadow:var(--shadow); }
 .t-quote{ width:26px; height:26px; color:var(--brand); opacity:.5; margin-bottom:10px; }
-.t-card p{ font-size:14.4px; font-style:italic; color:var(--ink-2); line-height:1.7; min-height:76px; }
-.t-card footer{ display:flex; align-items:center; gap:12px; margin-top:22px; padding-top:18px; border-top:1px solid var(--line); }
+.t-card p{
+  font-size:14.4px; font-style:italic; color:var(--ink-2); line-height:1.7;
+  /* margin:auto 0 centraliza a citacao na sobra vertical. Sem isso um
+     depoimento de uma linha fica colado no topo de um card alto, com um
+     buraco ate o rodape. */
+  margin:auto 0;
+  /* as avaliacoes vao de 27 a 380 caracteres; o clamp limita a 7 linhas
+     para uma nao inflar a altura de todas. O texto completo fica no Google. */
+  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:7; line-clamp:7;
+  overflow:hidden;
+}
+.t-card footer{ display:flex; align-items:center; gap:12px; margin-top:0; padding-top:18px; border-top:1px solid var(--line); }
 .t-card footer img{ width:42px; height:42px; border-radius:50%; object-fit:cover; flex-shrink:0; }
 .t-card footer strong{ display:block; font-size:14px; color:var(--ink); }
 .t-card footer small{ display:block; font-size:12.5px; color:var(--muted); }
@@ -380,6 +396,23 @@ svg:where(:not(.sprite)){
 .car-dots button{ width:8px; height:8px; border-radius:50%; background:var(--line-2); transition:width .3s var(--ease), background-color .3s; }
 .car-dots button:hover{ background:var(--muted-2); }
 .car-dots button.active{ width:24px; border-radius:5px; background:var(--brand); }
+
+/* ---------------- Convite para avaliar ---------------- */
+.reviews-cta{
+  display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap;
+  margin-top:34px; padding:26px 32px; border-radius:var(--radius-lg);
+  background:#fff; border:1px solid var(--line); box-shadow:var(--shadow-sm);
+}
+.rv-score{ display:grid; justify-items:center; gap:3px; flex-shrink:0; }
+.rv-num{ font-size:34px; font-weight:700; color:var(--ink); line-height:1; }
+.rv-score .stars{ margin-left:0; }
+.rv-score .stars svg{ width:15px; height:15px; }
+.rv-score small{ font-size:12.4px; color:var(--muted); }
+.reviews-cta > p{ font-size:14.8px; color:var(--muted); max-width:420px; }
+@media (max-width:720px){
+  .reviews-cta{ flex-direction:column; text-align:center; gap:18px; padding:24px 20px; }
+  .reviews-cta .btn{ width:100%; }
+}
 
 /* ---------------- Convênios ---------------- */
 .conv-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }

@@ -428,17 +428,17 @@
 
   const EXAM_INFO = {
     cito: {
-      tag: 'Exame', ph: 'cyto', title: 'Citopatologia',
+      tag: 'Exame', ph: 'cyto', img: 'assets/img/cito.jpg', title: 'Citopatologia',
       text: 'Avaliação microscópica de células obtidas por punção aspirativa, imprint, raspado ou líquidos cavitários. É o caminho mais rápido para orientar a conduta clínica.',
       list: ['Prazo médio de 1 a 2 dias úteis', 'Punção aspirativa, imprint, swab e líquidos', 'Coloração de rotina e especiais quando indicado', 'Discussão do caso com a patologista']
     },
     histo: {
-      tag: 'Exame', ph: 'histo', title: 'Histopatologia',
+      tag: 'Exame', ph: 'histo', img: 'assets/img/histo.jpg', title: 'Histopatologia',
       text: 'Análise da arquitetura tecidual em fragmentos fixados em formol, com descrição de margens cirúrgicas, grau histológico e índice mitótico quando aplicável.',
       list: ['Prazo médio de 3 a 5 dias úteis', 'Avaliação de margens cirúrgicas', 'Graduação histológica de neoplasias', 'Colorações especiais sob demanda']
     },
     ihq: {
-      tag: 'Exame', ph: 'ihc', title: 'Imuno-histoquímica',
+      tag: 'Exame', ph: 'ihc', img: 'assets/img/imuno.jpg', title: 'Imuno-histoquímica',
       text: 'Painéis de marcadores para definir a linhagem celular em tumores indiferenciados e refinar prognóstico e conduta terapêutica.',
       list: ['Painéis personalizados por suspeita clínica', 'Diferenciação de tumores redondos e fusiformes', 'Marcadores prognósticos (ex.: Ki-67)', 'Laudo integrado à histopatologia']
     },
