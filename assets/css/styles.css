@@ -250,6 +250,7 @@ svg:where(:not(.sprite)){
 
 /* ---------------- Exames ---------------- */
 .exams{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.exams-more{ text-align:center; margin-top:30px; font-size:15px; }
 
 .exam-card{
   background:#fff; border:1px solid var(--line); border-radius:var(--radius);
@@ -438,14 +439,21 @@ svg:where(:not(.sprite)){
 .plans{
   --k:1;   /* multiplicador de tamanho; reduzido no mobile */
   display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
-  gap:28px 56px; margin-bottom:38px;
+  gap:28px 56px; margin-bottom:22px;
 }
 .plans li{ display:grid; place-items:center; }
 /* altura e largura definidas no CSS: sem o width:auto os atributos
    width/height do <img> venceriam e distorceriam o logo */
 .plans img{ height:calc(var(--h) * var(--k)); width:auto; transition:transform .3s var(--ease); }
 .plans li:hover img{ transform:translateY(-3px); }
-@media (max-width:720px){ .plans{ --k:.78; gap:22px 34px; margin-bottom:30px; } }
+.plans-note{ text-align:center; margin-bottom:38px; font-size:14.4px; color:var(--muted); }
+.plans-note .link-more{ margin-left:6px; }
+@media (max-width:720px){
+  .plans{ --k:.78; gap:22px 34px; margin-bottom:18px; }
+  .plans-note{ margin-bottom:30px; }
+  /* no celular o link desce para a linha de baixo em vez de quebrar no meio */
+  .plans-note .link-more{ display:flex; justify-content:center; margin:6px 0 0; }
+}
 
 .conv-cta h3{ font-size:22px; }
 .conv-cta p{ margin-top:7px; font-size:14.4px; color:var(--muted); }
