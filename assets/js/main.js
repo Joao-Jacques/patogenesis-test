@@ -429,23 +429,45 @@
   const EXAM_INFO = {
     cito: {
       tag: 'Exame', ph: 'cyto', img: 'assets/img/cito.jpg', title: 'Citopatologia',
-      text: 'Avaliação microscópica de células obtidas por punção aspirativa, imprint, raspado ou líquidos cavitários. É o caminho mais rápido para orientar a conduta clínica.',
-      list: ['Prazo médio de 1 a 2 dias úteis', 'Punção aspirativa, imprint, swab e líquidos', 'Coloração de rotina e especiais quando indicado', 'Discussão do caso com a patologista']
+      text: 'Avaliação microscópica de células obtidas por punção aspirativa, imprint, swab, líquidos/efusões ou raspados. É o caminho mais rápido para orientar a conduta clínica.',
+      list: [
+        'Prazo médio de 1 a 3 dias úteis',
+        'Punção aspirativa, imprint, swab, líquidos/efusões e raspados cutâneos',
+        'Coloração de rotina e especiais quando indicado',
+        'Discussão do caso com a patologista'
+      ]
     },
     histo: {
       tag: 'Exame', ph: 'histo', img: 'assets/img/histo.jpg', title: 'Histopatologia',
-      text: 'Análise da arquitetura tecidual em fragmentos fixados em formol, com descrição de margens cirúrgicas, grau histológico e índice mitótico quando aplicável.',
-      list: ['Prazo médio de 3 a 5 dias úteis', 'Avaliação de margens cirúrgicas', 'Graduação histológica de neoplasias', 'Colorações especiais sob demanda']
+      text: 'Análise da arquitetura tecidual em fragmentos fixados em formol, com descrição de acometimento de margens cirúrgicas, acometimento de vasos, grau histológico e índice mitótico, quando aplicável.',
+      list: [
+        'Prazo médio de 5 a 10 dias úteis',
+        'Avaliação de margens cirúrgicas',
+        'Graduação histológica de neoplasias',
+        'Colorações especiais, quando aplicável'
+      ]
     },
     ihq: {
       tag: 'Exame', ph: 'ihc', img: 'assets/img/imuno.jpg', title: 'Imuno-histoquímica',
-      text: 'Painéis de marcadores para definir a linhagem celular em tumores indiferenciados e refinar prognóstico e conduta terapêutica.',
-      list: ['Painéis personalizados por suspeita clínica', 'Diferenciação de tumores redondos e fusiformes', 'Marcadores prognósticos (ex.: Ki-67)', 'Laudo integrado à histopatologia']
+      text: 'Painéis de marcadores para definir a linhagem celular em tumores indiferenciados, refinar prognóstico e conduta terapêutica.',
+      list: [
+        'Painéis diagnósticos personalizados pela suspeita clínica para cada paciente',
+        'Diferenciação de tumores redondos e fusiformes',
+        'Marcadores prognósticos (ex.: Ki-67)',
+        'Painéis prognósticos padronizados',
+        'Laudo integrado à histopatologia'
+      ]
     },
     necropsia: {
       tag: 'Exame', ph: 'necropsy', img: 'assets/img/necropsia.jpg', title: 'Necropsia',
-      text: 'Exame completo com correlação entre achados macroscópicos, histopatológicos e o histórico clínico, para elucidação de óbitos e casos complexos.',
-      list: ['Relatório macroscópico com registro fotográfico', 'Coleta e processamento de fragmentos', 'Correlação clínico-patológica', 'Orientação sobre conservação e transporte']
+      text: 'Exame completo com correlação entre achados macroscópicos, microscópicos e o histórico clínico, para buscar elucidar óbitos e casos complexos.',
+      list: [
+        'Relatório macroscópico e microscópico com registro fotográfico de lesões relevantes',
+        'Coleta e processamento de fragmentos',
+        'Correlação clínico-patológica',
+        'Orientação sobre conservação e transporte',
+        'Realização de exames complementares sob demanda: toxicológico, citoquímica, PCR, etc'
+      ]
     }
   };
 

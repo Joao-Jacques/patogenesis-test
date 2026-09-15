@@ -434,6 +434,19 @@ svg:where(:not(.sprite)){
   background:linear-gradient(120deg, var(--brand-tint), var(--cream-2));
   border:1px solid var(--line);
 }
+/* ---------------- Planos atendidos ---------------- */
+.plans{
+  --k:1;   /* multiplicador de tamanho; reduzido no mobile */
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+  gap:28px 56px; margin-bottom:38px;
+}
+.plans li{ display:grid; place-items:center; }
+/* altura e largura definidas no CSS: sem o width:auto os atributos
+   width/height do <img> venceriam e distorceriam o logo */
+.plans img{ height:calc(var(--h) * var(--k)); width:auto; transition:transform .3s var(--ease); }
+.plans li:hover img{ transform:translateY(-3px); }
+@media (max-width:720px){ .plans{ --k:.78; gap:22px 34px; margin-bottom:30px; } }
+
 .conv-cta h3{ font-size:22px; }
 .conv-cta p{ margin-top:7px; font-size:14.4px; color:var(--muted); }
 
@@ -545,7 +558,11 @@ svg:where(:not(.sprite)){
   margin:28px auto; background:#fff; border-radius:var(--radius-lg); padding:34px;
   box-shadow:var(--shadow-lg); animation:popIn .32s var(--ease);
 }
-.modal-box.slim{ width:min(560px, calc(100% - 32px)); padding:0; overflow:hidden; }
+/* overflow-y:auto (e nao hidden): com listas de 5 itens o conteudo passa da
+   altura da tela em notebooks baixos e celulares, e o hidden cortava os
+   botoes do rodape sem permitir rolar. Qualquer overflow != visible ja
+   recorta a imagem no border-radius, entao os cantos continuam redondos. */
+.modal-box.slim{ width:min(560px, calc(100% - 32px)); padding:0; overflow-x:hidden; overflow-y:auto; }
 @keyframes popIn{ from{ opacity:0; transform:translateY(24px) scale(.98); } to{ opacity:1; transform:none; } }
 
 .modal-close{
@@ -672,6 +689,9 @@ svg:where(:not(.sprite)){
   .car-nav.next{ right:-6px; }
   .conv-cta{ padding:26px 24px; }
   .modal-box{ padding:26px 20px; margin:14px auto; }
+  .modal-box.slim{ padding:0; max-height:calc(100vh - 28px); }
+  .info-media{ height:140px; }
+  .info-body{ padding:22px 20px 24px; }
   .field-row{ grid-template-columns:1fr; }
   .modal-actions .btn{ flex:1; }
   .footer-bottom .container{ justify-content:center; text-align:center; }
