@@ -250,7 +250,15 @@ svg:where(:not(.sprite)){
 
 /* ---------------- Exames ---------------- */
 .exams{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
-.exams-more{ text-align:center; margin-top:30px; font-size:15px; }
+.exams-more{ text-align:center; margin-top:34px; }
+@media (max-width:520px){
+  /* .btn tem white-space:nowrap; com esse texto o botao estouraria
+     telas de 320-360px. No celular ocupa a largura e pode quebrar linha. */
+  .exams-more .btn{ display:block; width:100%; white-space:normal; text-align:center; }
+  /* em bloco o icone acompanha o fim do texto; em flex, o texto quebrado
+     ocupava a largura toda e empurrava o icone para a borda do botao */
+  .exams-more .btn .i{ display:inline-block; vertical-align:-2px; margin-left:8px; }
+}
 
 .exam-card{
   background:#fff; border:1px solid var(--line); border-radius:var(--radius);
