@@ -219,8 +219,6 @@ svg:where(:not(.sprite)){
 .hero-copy h1 .hl{ color:var(--brand); }
 .lead{ margin-top:20px; font-size:16.5px; color:var(--muted); max-width:470px; }
 .hero-cta{ display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
-.hero-note{ display:flex; align-items:center; gap:9px; margin-top:26px; font-size:14px; color:var(--muted); }
-.hero-note .i{ width:18px; height:18px; color:var(--brand); }
 
 /* Feature strip */
 .features{
