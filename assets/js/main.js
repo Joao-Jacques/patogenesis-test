@@ -433,7 +433,6 @@
       list: [
         'Prazo médio de 1 a 3 dias úteis',
         'Punção aspirativa, imprint, swab, líquidos/efusões e raspados cutâneos',
-        'Coloração de rotina e especiais quando indicado',
         'Discussão do caso com a patologista'
       ]
     },
@@ -453,7 +452,6 @@
       list: [
         'Painéis diagnósticos personalizados pela suspeita clínica para cada paciente',
         'Diferenciação de tumores redondos e fusiformes',
-        'Marcadores prognósticos (ex.: Ki-67)',
         'Painéis prognósticos padronizados',
         'Laudo integrado à histopatologia'
       ]
