@@ -648,22 +648,44 @@
     }, 900);
   });
 
+  // FormSubmit (formsubmit.co) encaminha a mensagem por e-mail, sem backend.
+  // O primeiro envio manda um e-mail de ativacao ao laboratorio; ate o link
+  // ser clicado o servico responde success "false" e nada e entregue.
+  const CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/patogenesislab@gmail.com';
+
   const contactForm = $('#contactForm');
   if (contactForm) {
     wireValidation(contactForm);
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!validateForm(contactForm)) return;
       const btn = $('button[type="submit"]', contactForm);
       const original = btn.textContent;
       btn.disabled = true;
       btn.textContent = 'Enviando...';
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.textContent = original;
+      const data = Object.fromEntries(new FormData(contactForm));
+      try {
+        const res = await fetch(CONTACT_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            ...data,
+            _subject: `Contato pelo site: ${data.assunto}`,
+            _template: 'table'
+          })
+        });
+        const json = await res.json();
+        // o servico devolve success como string ("true"/"false")
+        if (!res.ok || String(json.success) !== 'true') throw new Error(json.message);
         contactForm.reset();
         toast('Mensagem enviada! Retornaremos em breve.');
-      }, 900);
+      } catch (err) {
+        console.error('Falha no envio do contato:', err);
+        toast('Não foi possível enviar. Tente novamente ou fale pelo WhatsApp.');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = original;
+      }
     });
   }
 
