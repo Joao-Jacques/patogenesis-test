@@ -451,7 +451,6 @@
       text: 'Painéis de marcadores para definir a linhagem celular em tumores indiferenciados, refinar prognóstico e conduta terapêutica.',
       list: [
         'Painéis diagnósticos personalizados pela suspeita clínica para cada paciente',
-        'Diferenciação de tumores redondos e fusiformes',
         'Painéis prognósticos padronizados',
         'Laudo integrado à histopatologia'
       ]
